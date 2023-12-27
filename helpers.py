@@ -55,9 +55,8 @@ def create_folds_data(X_train, Y_train, number_of_folds: int) -> list[FoldData]:
 def get_d_star_from_cross_validation_error(fold_test_prediction_error: np.array, ds) -> tuple[float, float, int, int]:
     error_over_folds = fold_test_prediction_error[:, :].mean(axis=0)  # average over the folds
     index_min_error_flat = np.argmin(error_over_folds)  # get the index of the minimum cross validation error
-    # convert into the 2-d index of gamma and sigma
     d_star_index = np.unravel_index(
         index_min_error_flat, error_over_folds.shape
     )
-    d_star = ds[d_star_index]
+    d_star = ds[d_star_index[0]]
     return d_star,d_star_index
