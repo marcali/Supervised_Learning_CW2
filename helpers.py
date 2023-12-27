@@ -59,4 +59,4 @@ def get_d_star_from_cross_validation_error(fold_test_prediction_error: np.array,
         index_min_error_flat, error_over_folds.shape
     )
     d_star = ds[d_star_index[0]]
-    return d_star,d_star_index
+    return d_star, d_star_index[0]
