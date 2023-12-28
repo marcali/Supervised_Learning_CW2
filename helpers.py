@@ -60,3 +60,10 @@ def get_d_star_from_cross_validation_error(fold_test_prediction_error: np.array,
     )
     d_star = ds[d_star_index[0]]
     return d_star, d_star_index[0]
+
+#splitting data and labels
+def split_into_data_and_labels(data):
+    y = data[:,0].astype(int)
+    #convert to -1 and 1 here instead of in the loop
+    x = data[:, 1:]
+    return x, y
